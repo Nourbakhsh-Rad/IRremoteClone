@@ -2,10 +2,10 @@
   IR remote - ATtiny44A, 3x7 key matrix (21 keys), Power-down sleep           (project IRremoteClone)
 
   Files of the sketch:
-    IRremoteClone.ino   					main program: matrix scan, sleep / wake-up, key handling
-    Config.h           						THIS FILE: protocol selection, your settings and key codes
-    IRProtocols.h      						carrier engine + protocol encoders (only the selected protocol is compiled)
-    IR_Remote_Clone_Guide.md			user guide...
+    IRremoteClone.ino   		main program: matrix scan, sleep / wake-up, key handling
+    Config.h           			THIS FILE: protocol selection, your settings and key codes
+    IRProtocols.h      			carrier engine + protocol encoders (only the selected protocol is compiled)
+    IR_Remote_Clone_Guide.md	user guide...
 
   Supported protocols (select exactly one with PROTO below):
     PROTO_NEC      				NEC, 32 bit
@@ -46,7 +46,7 @@
 // F_CPU is passed to the compiler by the Arduino IDE from Tools -> Clock (do NOT redefine it here)
 // The fallback below is only used when building outside the Arduino IDE without -DF_CPU=...
 #ifndef F_CPU
-  #define F_CPU 					4000000UL
+  #define F_CPU             4000000UL
 #endif
 
 #if F_CPU == 4000000UL
@@ -78,27 +78,27 @@
 
 
 // ---------------- protocol settings ----------------
-#define REMOTE_CODE				0x2002		// NEC:								0x00
-																		// SAMSUNG:						0x07
-																		// Sony SIRC:					0x01				address 5 bits for 12 bit frames, 8 bits for 15, 13 bits for 20
-																		// Philips RC5/RC5X:	0x00				address 5 bits, command 6 bits, or 7 bits for RC5X
-																		// Panasonic AEHA:		0x2002
+#define REMOTE_CODE       0x2002           // NEC:                0x00
+                                           // SAMSUNG:            0x07
+                                           // Sony SIRC:          0x01       address 5 bits for 12 bit frames, 8 bits for 15, 13 bits for 20
+                                           // Philips RC5/RC5X:   0x00       address 5 bits, command 6 bits, or 7 bits for RC5X
+                                           // Panasonic AEHA:     0x2002
 
 
 // ---------------- hardware definitions - fixed! ----------------
 #define IR_PIN        		PB2
-#define COL_MASK      		0x07                                     // PA0..PA2 (columns, wake-up pins)
-#define ROWA_MASK     		0xF8                                     // PA3..PA7 = rows 0..4
-#define ROWB_MASK     		((1 << PB0) | (1 << PB1))                // rows 5..6
+#define COL_MASK      		0x07                              // PA0..PA2 (columns, wake-up pins)
+#define ROWA_MASK     		0xF8                              // PA3..PA7 = rows 0..4
+#define ROWB_MASK     		((1 << PB0) | (1 << PB1))         // rows 5..6
 
 #define DEBOUNCE_MS   		20
-#define MAX_HOLD_MS   		15000                                    // stop repeating after ~15 s of holding (a stuck key must not drain the battery)
+#define MAX_HOLD_MS   		15000                             // stop repeating after ~15 s of holding (a stuck key must not drain the battery)
 
 
 // ---------------- matrix size - fixed! ----------------
-#define N_COLS  					3
-#define N_ROWS  					7
-#define N_KEYS  					(N_ROWS * N_COLS)
+#define N_COLS              3
+#define N_ROWS              7
+#define N_KEYS              (N_ROWS * N_COLS)
 
 
 // ---------------- key codes ----------------
