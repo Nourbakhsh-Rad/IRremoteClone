@@ -2,8 +2,8 @@
 
 A low-power, multi-protocol infrared remote-control project based on the **ATtiny44A**. The original use case is reproducing a legacy Panasonic-family remote using captured **AEHA/Kaseikyo** frames. The firmware also includes configurable encoders for NEC, Samsung32, Sony SIRC, and Philips RC5/RC5X.
 
-> **Hardware schematic:** [`docs/IRremote_Sch.pdf`](docs/IRremote.pdf)  
-> **Detailed technical guide:** [`docs/IR_Remote_Clone_Guide.md`](docs/IR_Remote_Clone_Guide_EN.md)  
+> **Hardware schematic:** [`docs/IRremote_Sch.pdf`](docs/IRremote_Sch.pdf)  
+> **Detailed technical guide:** [`docs/IR_Remote_Clone_Guide.md`](docs/IR_Remote_Clone_Guide.md)  
 
 ## Highlights
 
@@ -27,7 +27,7 @@ A low-power, multi-protocol infrared remote-control project based on the **ATtin
 | IR output | `PB2 / OC0A` |
 | ISP | Standard 6-pin ISP; PA4–PA6 are shared with keypad rows |
 
-The complete circuit diagram is in [`docs/IRremote.pdf`](docs/IRremote.pdf). The English guide includes the pin map, BOM, current and battery-life estimates, programming/fuse notes, protocol details, testing steps, and troubleshooting.
+The complete circuit diagram is in [`docs/IRremote_Sch.pdf`](docs/IRremote_Sch.pdf). The English guide includes the pin map, BOM, current and battery-life estimates, programming/fuse notes, protocol details, testing steps, and troubleshooting.
 
 ## Supported protocols
 
@@ -102,7 +102,7 @@ The Power-key code `0xBD3D` produces the captured frame `02 20 80 00 3D BD`. The
 
 For the original Panasonic-family remote, capture the clone using an ESP32 IR receiver and compare the raw timings. The Power-key frame should decode to `02 20 80 00 3D BD`, with `T ≈ 432 µs` and a full-frame repeat period near 130 ms. Measure carrier frequency with appropriate instrumentation; a demodulating receiver does not reveal the carrier waveform.
 
-See the [English technical guide](docs/IR_Remote_Clone_Guide_EN.md) for the complete bring-up checklist, power measurements, known limitations, programming instructions, and troubleshooting table.
+See the [technical guide](docs/IR_Remote_Clone_Guide.md) for the complete bring-up checklist, power measurements, known limitations, programming instructions, and troubleshooting table.
 
 ## Contributing
 
